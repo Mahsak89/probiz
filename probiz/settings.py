@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['probiz.herokuapp.com', 'localhost',
+ALLOWED_HOSTS = ['probizz-bd3dbf6d99f9.herokuapp.com', 'localhost',
                  '8000-mahsak89-probiz-ffxxrzkj93.us2.codeanyapp.com']
 
 
