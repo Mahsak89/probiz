@@ -16,7 +16,7 @@ class BookingView(View):
 
     def get(self, request):
         today = datetime.now()
-        self.weekdays = self.validWeekday(22)
+        self.weekdays = self.validWeekday(31)
         self.validate_weekdays = self.isWeekdayValid(self.weekdays)
         return render(request, self.template_name, {
             'weekdays': self.weekdays,
@@ -35,7 +35,7 @@ class BookingView(View):
         return redirect('bookingSubmit')
 
     def validWeekday(self, days):
-        # Loop days you want in the next 21 days:
+        # Loop days you want in the next 30 days:
         today = datetime.now()
         weekdays = []
         for i in range(0, days):
