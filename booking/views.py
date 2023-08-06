@@ -137,3 +137,29 @@ class UserPanelView(ListView):
 
     def get_queryset(self):
         return super().get_queryset().filter(user=self.request.user).order_by('day', 'time')
+
+
+class UserUpdateView(View):
+    template_name = "userUpdate.html"
+
+    def get(self, request, id):
+        appointment = Appointment.objects.get(pk=id)
+        userdatepicked = appointment.day
+        today = datetime.today()
+        delta24 = (userdatepicked >= (
+            today + timedelta(days=1)).strftime('%Y-%m-%d'))
+        weekdays = BookingView.weekdays
+        validate_weekdays = BookingView.validate_weekdays
+        return render(request, self.template_name, {
+            'weekdays': weekdays,
+            'validateWeekdays': validate_weekdays,
+            'delta24': delta24,
+            'id': id,
+        })
+
+    def post(self, request, id):
+        service = request.POST.get('service')
+        day = request.POST.get('day')
+        request.session['day'] = day
+        request.session['service'] = service
+        return redirect('userUpdateSubmit', id=id)
