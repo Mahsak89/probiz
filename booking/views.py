@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from datetime import datetime, timedelta
 from .models import Appointment
 from django.contrib import messages
+from django.urls import reverse
+
 
 
 class IndexView(TemplateView):
@@ -183,3 +185,83 @@ class UserUpdateView(View):
             if Appointment.objects.filter(day=j).count() < 10:
                 validateWeekdays.append(j)
         return validateWeekdays
+
+
+class UserUpdateSubmitView(View):
+    template_name = "userUpdateSubmit.html"
+
+    def get(self, request, id):
+        user = request.user
+        appointment = Appointment.objects.get(pk=id)
+        times = ["3pm", "4pm", "5pm"]
+        today = datetime.now()
+        min_date = today.strftime('%Y-%m-%d')
+        max_date = (today + timedelta(days=30)).strftime('%Y-%m-%d')
+
+        day = request.session.get('day')
+        service = request.session.get('service')
+        hour = self.checkTime(times, day)
+
+        return render(request, self.template_name, {
+            'times': hour,
+            'service': service,
+            'day': day,
+            'id': id,
+        })
+
+    def post(self, request, id):
+        user = request.user
+        times = [
+            "3 PM", "4 PM", "5 PM"
+        ]
+        today = datetime.now()
+        min_date = today.strftime('%Y-%m-%d')
+        max_date = (today + timedelta(days=30)).strftime('%Y-%m-%d')
+
+        day = request.session.get('day')
+        service = request.session.get('service')
+        hour = self.checkTime(times, day)
+
+        if not service:
+            messages.success(request, "Please Select A Service!")
+            return redirect(reverse('userUpdateSubmit', args=[id]))
+
+        if day < min_date or day > max_date:
+            messages.success(
+                request, "The Selected Date Isn't In The Correct Time Period!")
+            return redirect(reverse('userUpdateSubmit', args=[id]))
+
+        date = self.dayToWeekday(day)
+        if date not in ['Monday', 'Saturday', 'Wednesday']:
+            messages.success(request, "The Selected Date Is Incorrect")
+            return redirect(reverse('userUpdateSubmit', args=[id]))
+
+        if Appointment.objects.filter(day=day).count() >= 11:
+            messages.success(request, "The Selected Day Is Full!")
+            return redirect(reverse('userUpdateSubmit', args=[id]))
+
+        time = request.POST.get("time")
+        appointment_exists = Appointment.objects.filter(
+            day=day, time=time).exists()
+        if not appointment_exists or (appointment_exists and time == Appointment.objects.get(day=day).time):
+            Appointment.objects.create(
+                user=user, service=service, day=day, time=time)
+            messages.success(request, "Appointment Edited!")
+            return redirect('index')
+        else:
+            messages.success(
+                request, "The Selected Time Has Been Reserved Before!")
+            return redirect(reverse('userUpdateSubmit', args=[id]))
+
+    def checkTime(self, times, day):
+        # Only show the time of the day that has not been selected before:
+        x = []
+        for k in times:
+            if Appointment.objects.filter(day=day, time=k).count() < 1:
+                x.append(k)
+        return x
+
+    def dayToWeekday(self, x):
+        z = datetime.strptime(x, "%Y-%m-%d")
+        y = z.strftime('%A')
+        return y
