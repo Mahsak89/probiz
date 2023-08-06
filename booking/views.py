@@ -141,18 +141,20 @@ class UserPanelView(ListView):
 
 class UserUpdateView(View):
     template_name = "userUpdate.html"
+    weekdays = []
+    validate_weekdays = []
 
     def get(self, request, id):
         appointment = Appointment.objects.get(pk=id)
         userdatepicked = appointment.day
         today = datetime.today()
-        delta24 = (userdatepicked >= (
-            today + timedelta(days=1)).strftime('%Y-%m-%d'))
-        weekdays = BookingView.weekdays
-        validate_weekdays = BookingView.validate_weekdays
+        delta24 = (userdatepicked).strftime(
+            '%Y-%m-%d') >= (today + timedelta(days=1)).strftime('%Y-%m-%d')
+        self.weekdays = self.validWeekday(31)
+        self.validate_weekdays = self.isWeekdayValid(self.weekdays)
         return render(request, self.template_name, {
-            'weekdays': weekdays,
-            'validateWeekdays': validate_weekdays,
+            'weekdays': self.weekdays,
+            'validateWeekdays': self.validate_weekdays,
             'delta24': delta24,
             'id': id,
         })
@@ -163,3 +165,21 @@ class UserUpdateView(View):
         request.session['day'] = day
         request.session['service'] = service
         return redirect('userUpdateSubmit', id=id)
+
+    def validWeekday(self, days):
+        # Loop days you want in the next 30 days:
+        today = datetime.now()
+        weekdays = []
+        for i in range(0, days):
+            x = today + timedelta(days=i)
+            y = x.strftime('%A')
+            if y == 'Monday' or y == 'Saturday' or y == 'Wednesday':
+                weekdays.append(x.strftime('%Y-%m-%d'))
+        return weekdays
+
+    def isWeekdayValid(self, x):
+        validateWeekdays = []
+        for j in x:
+            if Appointment.objects.filter(day=j).count() < 10:
+                validateWeekdays.append(j)
+        return validateWeekdays
