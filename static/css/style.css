@@ -152,6 +152,19 @@ a:hover {
     background-color: #9775ba;
 }
 
+/* MILESTONE */
+#milestone {
+    background: linear-gradient(rgba(89, 46, 131, 0.85), rgba(178, 124, 102, 0.85)), url(/media/bg_banner1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#milestone h1,
+#milestone p {
+    color: #fff;
+}
+
 /*Footer*/
 footer {
     background: linear-gradient(0deg, rgba(8, 32, 50, 0.9), rgba(8, 32, 50, 0.9)), #082032;
