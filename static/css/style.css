@@ -120,6 +120,38 @@ a:hover {
     color: #fff;
 }
 
+/*about*/
+.intro {
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.intro p {
+    max-width: 800px;
+    font-weight: 400;
+
+}
+
+.intro h2 {
+
+
+    text-transform: uppercase;
+}
+
+.intro h1 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.custom-about-img {
+    margin-top: 23%;
+    max-height: 500px;
+}
+
+.info-text h5 span {
+    background-color: #9775ba;
+}
+
 /*Footer*/
 footer {
     background: linear-gradient(0deg, rgba(8, 32, 50, 0.9), rgba(8, 32, 50, 0.9)), #082032;
