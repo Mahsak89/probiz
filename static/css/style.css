@@ -99,6 +99,27 @@ a:hover {
     box-shadow: none;
 }
 
+/*header*/
+.hero-img {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('/media/pexels-kindel-media-7688336.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.hero-img .display-3 {
+    text-transform: uppercase;
+    color: #fff;
+}
+
 /*Footer*/
 footer {
     background: linear-gradient(0deg, rgba(8, 32, 50, 0.9), rgba(8, 32, 50, 0.9)), #082032;

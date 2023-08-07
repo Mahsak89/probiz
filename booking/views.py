@@ -6,7 +6,6 @@ from django.contrib import messages
 from django.urls import reverse
 
 
-
 class IndexView(TemplateView):
     template_name = "index.html"
 

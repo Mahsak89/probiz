@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
 
+
 SERVICE_CHOICES = (
     ("Business Strategy Development", "Business Strategy Development"),
     ("Financial Planning and Analysis", "Financial Planning and Analysis"),
