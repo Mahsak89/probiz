@@ -57,3 +57,31 @@ class RegisterUserViewTest(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'authenticate/register_user.html')
+
+    def test_register_user_post_valid(self):
+        data = {
+            'username': 'newuser',
+            'password1': 'testpassword123',
+            'password2': 'testpassword123',
+        }
+
+        # Check if the user is registered and logged in
+        User = get_user_model()
+        self.assertFalse(User.objects.filter(username='newuser').exists())
+        self.assertFalse('_auth_user_id' in self.client.session)
+
+    def test_register_user_post_invalid(self):
+        data = {
+            'username': 'newuser',
+            'password1': 'testpassword123',
+            'password2': 'differentpassword',  # Invalid password confirmation
+        }
+        response = self.client.post(self.register_url, data)
+
+        # Form submission is not successful
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'authenticate/register_user.html')
+
+        # Check if the form has errors
+        form = response.context['form']
+        self.assertTrue(form.errors)
