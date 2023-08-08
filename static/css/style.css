@@ -84,8 +84,8 @@ a:hover {
     color: #fff;
 }
 
-.btn-brand:hover {
-    background-color: #4c2176;
+.btn:hover {
+    background-color: #cb4705;
     border-color: #4c2176;
     color: #fff;
 }
@@ -231,4 +231,18 @@ footer .social-icons a {
     font-size: 20px;
     margin-left: 4px;
     margin-right: 4px;
+}
+
+@media (min-width: 1250px) {
+    .service {
+        min-height: 230px;
+    }
+
+}
+
+@media (max-width: 760px) {
+    .service {
+        min-height: 230px;
+    }
+
 }
