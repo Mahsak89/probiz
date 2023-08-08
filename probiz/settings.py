@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['probizz-bd3dbf6d99f9.herokuapp.com', 'localhost',
+ALLOWED_HOSTS = ['probizz-bd3dbf6d99f9.herokuapp.com/', 'localhost',
                  '8000-mahsak89-probiz-ffxxrzkj93.us2.codeanyapp.com']
 
 
