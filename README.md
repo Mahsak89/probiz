@@ -39,7 +39,7 @@
   - [Homepage](#homepage)
   - [All booking and editbooking Page](#booking,editbooking)
   - [Authentification Pages](#authentification-pages)
-  - [User Profile Page](#user panel-page)
+  - [User panel Page](#user panel-page)
 - [Future Features](#future-features)
 - [Data Model](#data-model)
   - [Database Schema](#database-schema)
@@ -110,7 +110,7 @@
   
 # Wireframes
 
-* [View my wireframes in PDF form here](#docs/README/wireframes/wireframes.pdf).
+* [View my wireframes in PDF form here]
 # Features
 
 ## All Pages
@@ -193,9 +193,7 @@ The following Data models were used:
 - user - stores information for each holiday let
 - booking - stores information about Listing category
 
-This diagram outlines each model's fields and illustrates the relationship between the models:
 
-<h2 align="center"><img src="docs/README/db-schema.png"></h2>
 
 # Technologies Used
 
@@ -266,8 +264,6 @@ The following tools were used for testing and code validation. You can see resul
 - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 
 - [Coverage](https://coverage.readthedocs.io/en/7.0.1/)
-
-- [Python Linting on Gitpod]
 
 - [Chrome Screen Reader](https://chrome.google.com/webstore/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en)
 
