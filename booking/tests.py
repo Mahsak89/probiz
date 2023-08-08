@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from datetime import date, timedelta
 from .models import Appointment
+from django.contrib.messages import get_messages
 
 
 class BookingViewTest(TestCase):

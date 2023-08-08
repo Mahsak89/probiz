@@ -78,18 +78,6 @@ a:hover {
     margin-left: 20px;
 }
 
-.btn-brand {
-    border-color: var(--brand);
-    background-color: var(--brand);
-    color: #fff;
-}
-
-.btn:hover {
-    background-color: #cb4705;
-    border-color: #4c2176;
-    color: #fff;
-}
-
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,
