@@ -46,3 +46,14 @@ class LogoutUserViewTest(TestCase):
 
         # Check if the user is logged out
         self.assertFalse('_auth_user_id' in self.client.session)
+
+
+class RegisterUserViewTest(TestCase):
+    def setUp(self):
+        self.register_url = reverse('register')
+
+    def test_register_user_get(self):
+        response = self.client.get(self.register_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'authenticate/register_user.html')
