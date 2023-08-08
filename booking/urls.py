@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import IndexView, BookingView, BookingSubmitView, UserPanelView, UserUpdateView, UserUpdateSubmitView
+from .views import IndexView, BookingView, BookingSubmitView, UserPanelView, UserUpdateView, UserUpdateSubmitView, deleteAppointment
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
@@ -9,6 +9,8 @@ urlpatterns = [
     path('user/update/<int:id>/', UserUpdateView.as_view(), name='userUpdate'),
     path('user/update/submit/<int:id>/',
          UserUpdateSubmitView.as_view(), name='userUpdateSubmit'),
+    path('delete/<int:id>/',
+         deleteAppointment, name='appointmentDelete'),
 
 
 ]

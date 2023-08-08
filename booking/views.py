@@ -264,3 +264,11 @@ class UserUpdateSubmitView(View):
         z = datetime.strptime(x, "%Y-%m-%d")
         y = z.strftime('%A')
         return y
+
+
+def deleteAppointment(request, id):
+    appointment = Appointment.objects.get(pk=id)
+    appointment.delete()
+    messages.success(
+        request, "Deleted appointed!")
+    return redirect('userPanel')

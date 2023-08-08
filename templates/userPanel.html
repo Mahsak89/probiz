@@ -28,7 +28,11 @@
         >
       </div>
       <div class="mt-3 mb-2">
-        <a class="btn btn-dark rounded-3 p-2" href="">Delete Appointment</a>
+        <a
+          class="btn btn-dark rounded-3 p-2"
+          href="{% url 'appointmentDelete' appointment.id %}"
+          >Delete Appointment</a
+        >
       </div>
     </div>
     {% endfor %}
