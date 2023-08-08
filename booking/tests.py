@@ -68,3 +68,29 @@ class UserUpdateSubmitViewTest(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'userUpdateSubmit.html')
+
+
+class UserPanelViewTest(TestCase):
+    def setUp(self):
+        # Create a test user
+        self.user = User.objects.create_user(
+            username='testuser', password='testpassword'
+        )
+        # Create some test appointments for the user
+        self.appointment1 = Appointment.objects.create(
+            user=self.user, service='Service 1', day=date.today(), time='3 PM'
+        )
+        self.appointment2 = Appointment.objects.create(
+            user=self.user, service='Service 2', day=date.today() + timedelta(days=1), time='4 PM'
+        )
+
+    def test_user_panel_view_get(self):
+        url = reverse('userPanel')
+        self.client.login(username='testuser', password='testpassword')
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'userPanel.html')
+
+        appointments = response.context['appointments']
+        self.assertEqual(len(appointments), 2)
