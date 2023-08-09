@@ -142,7 +142,7 @@ a:hover {
 
 /* MILESTONE */
 #milestone {
-    background: linear-gradient(rgba(89, 46, 131, 0.85), rgba(178, 124, 102, 0.85)), url(/media/bg_banner1.jpg);
+    background: linear-gradient(rgba(89, 46, 131, 0.85), rgba(178, 124, 102, 0.85));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
