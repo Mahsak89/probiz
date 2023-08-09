@@ -108,6 +108,23 @@ a:hover {
     color: #fff;
 }
 
+/* Apply styles to form fields */
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
 /*about*/
 .intro {
     margin-bottom: 36px;
