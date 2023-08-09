@@ -1,6 +1,8 @@
 # probiz
 
+
 ## Milestone Project 4 - Full Stack Development
+![Desktop view](docs/image/responsiv-pic.png)
 
 * probiz is a fictional business consulting website that allows users to  book a service.
   
@@ -37,15 +39,20 @@
     - [Footer](#footer)
     - [Messages](#messages)
   - [Homepage](#homepage)
-  - [All booking and editbooking Page](#booking,editbooking)
+  - [booking,editbooking](#bookingeditbooking)
   - [Authentification Pages](#authentification-pages)
-  - [User panel Page](#user panel-page)
+  - [User pannel Page](#user-pannel-page)
 - [Future Features](#future-features)
+  - [Reviews Pages](#reviews-pages)
+    - [Users can view all their reviews](#users-can-view-all-their-reviews)
+  - [Add/ Edit/ Delete Reviews](#add-edit-delete-reviews)
+    - [Add Review Page](#add-review-page)
 - [Data Model](#data-model)
   - [Database Schema](#database-schema)
 - [Technologies Used](#technologies-used)
   - [Languages Used](#languages-used)
   - [Frameworks \& Libraries](#frameworks--libraries)
+  - [Frameworks \& Libraries](#frameworks--libraries-1)
   - [Storage \& Hosting](#storage--hosting)
   - [IDE \& Version Control](#ide--version-control)
   - [Other Tools](#other-tools)
@@ -58,9 +65,9 @@
     - [Django:](#django)
     - [Bootstrap:](#bootstrap)
     - [Stack Overflow:](#stack-overflow)
-    - [W3Schools:](#w3schools)
-    - [GeeksForGeeks:](#geeksforgeeks)
-    - [Youtube:](#youtube)
+    - [W3Schools](#w3schools)
+    - [GeeksForGeeks](#geeksforgeeks)
+    - [Youtube youtube](#youtube-youtube)
   - [Content](#content)
   - [Media](#media)
   - [Acknowledgements](#acknowledgements)
@@ -109,8 +116,8 @@
 
   
 # Wireframes
+- [View my wireframes in PDF form here](#docs/image/wireframes.pdf).
 
-* [View my wireframes in PDF form here]
 # Features
 
 ## All Pages
@@ -181,10 +188,9 @@
 * Users can only access their own reviews
 
 
-
 # Data Model
 
-
+- [View my Data Model  here](#docs/image/datamodel.jpg).
 
 ## Database Schema
 
