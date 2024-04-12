@@ -33,7 +33,7 @@ DEBUG = False
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
-ALLOWED_HOSTS = ['probizz-bd3dbf6d99f9.herokuapp.com', 'localhost',
+ALLOWED_HOSTS = ['probiz-2a6d5aa2ca03.herokuapp.com', 'localhost',
                  '8000-mahsak89-probiz-ffxxrzkj93.us2.codeanyapp.com']
 
 
