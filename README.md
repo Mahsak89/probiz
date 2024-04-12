@@ -2,7 +2,7 @@
 
 
 ## Milestone Project 4 - Full Stack Development
-![Desktop view](docs/image/responsiv-pic.png)
+![Desktop view](docs/image/mock.JPEG)
 
 * probiz is a fictional business consulting website that allows users to  book a service.
   
