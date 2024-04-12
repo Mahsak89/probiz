@@ -11,7 +11,7 @@
 ## Live Project
 
 
-[View the live project here.](https://probizz-bd3dbf6d99f9.herokuapp.com/)
+[View the live project here.](https://probiz-2a6d5aa2ca03.herokuapp.com/)
 
 ## Repository
 
